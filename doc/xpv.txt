@@ -1,0 +1,65 @@
+*xpv.txt*	expressive pipelines (xp) in vim!
+*xpv*
+
+	The power of vim meets xp. You're unstoppable now.
+
+==============================================================
+CONTENTS										*xpv-contents*
+
+	1. Intro................|xpv-intro|
+	2. Commands.............|xpv-commands|
+
+=============================================================
+1. Intro										*xpv-intro*
+
+xpv is a plugin that allows you to work with xp pipelines from directly inside
+vim.  Probably the function you'll use the most is running tasks and pipelines. 
+
+Using xpv begins by opening up a pipeline file.  Once you're in a pipeline, xpv
+commands make sense.  Typically the commands will assume you're talking about
+the current pipeline.
+
+Note that to use xpv, you need to have xp installed on your local system.
+Besides that, nothing else is required.
+
+=============================================================
+2. Commands										*xpv-commands*
+
+:CheckXP										*:CheckXP*
+
+Check and make sure that the xpv plugin can run. This checks for the xp
+dependency.  If everything checks out, the command will print "OK".
+
+:OpenPipeline									*:OpenPipeline*
+
+Open the pipeline under the cursor. The command assumes that your cursor is
+over either an "use ..." or "extends ..." statement.
+
+:RunPipeline									*:RunPipeline*
+
+Run all tasks in the current pipeline. The command takes an optional force
+argument, which can have the following values:
+
+	none - no special forcing.  Respect all marked tasks.
+	top  - force all the tasks in the pipeline to run, regardless of whether
+	 	   they're marked
+	all  - force all tasks and dependencies to run, regardless of whether
+		   they're marked
+	solo - run each task in the pipeline without running their dependencies
+
+:RunTask										*:RunTask*
+
+Run the task under the cursor.  The command takes an optional force
+argument, which can have the same values as the RunPipeline command.
+
+:GetTaskStatus									*:GetTaskStatus*
+
+Print information about this task: when it was last run, whether it's marked, etc...
+
+:UnmarkTask										*:UnmarkTask*
+
+Unmark the task under the cursor.
+
+:UnmarkPipeline									*:UnmarkPipeline*
+
+Unmark all tasks in this pipeline.

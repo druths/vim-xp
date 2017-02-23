@@ -1,3 +1,9 @@
+"============================================================================
+"File:        xpv.vim
+"Description: Vim plugin for using xp functionality inside vim editor.
+"License:     This program is free software. It comes without any warranty,
+"             to the extent permitted by applicable law. 
+"============================================================================
 
 if !has('python')
 	finish
