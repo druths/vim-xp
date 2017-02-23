@@ -4,7 +4,7 @@ import vim
 from xp.pipeline import get_pipeline
 
 script_path = vim.eval('s:path')
-sys.path.insert(0,script_path)
+sys.path.insert(0,os.path.join(script_path,'lib'))
 from xpv_helper import *
 
 def main():

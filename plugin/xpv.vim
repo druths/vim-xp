@@ -6,39 +6,41 @@
 "============================================================================
 
 if !has('python')
+	echo 'python must be installed for xpv to work'
 	finish
 endif
 
-let s:path = expand('<s-file>:p:h')
+" get the path to the directory holding this script
+let s:path = expand('<sfile>:p:h')
 
 function! xpv#check_xp()
-	pyfile lib/check_xp.py
+	execute 'pyfile ' . s:path . '/lib/check_xp.py'
 endfunction
 
 " TODO
 function! xpv#open_pipeline()
-	pyfile lib/open_pipeline.py
+	execute 'pyfile ' . s:path . '/lib/open_pipeline.py'
 endfunction
 
 function! xpv#run_pipeline(...) " only one argument, force, is supported
-	pyfile lib/run_pipeline.py
+	execute 'pyfile ' . s:path . '/lib/run_pipeline.py'
 endfunction
 
 function! xpv#run_task(...) " only one argument, force, is supported
-	pyfile lib/run_task.py
-endfunc
+	execute 'pyfile ' . s:path . '/lib/run_task.py'
+endfunction
 
 function! xpv#get_task_status()
-	pyfile lib/get_task_status.py
-endfunc
+	execute 'pyfile ' . s:path . '/lib/get_task_status.py'
+endfunction
 
 function! xpv#unmark_task()
-	pyfile lib/unmark_task.py
-endfunc
+	execute 'pyfile ' . s:path . '/lib/unmark_task.py'
+endfunction
 
 function! xpv#unmark_pipeline(...) " only one arg, recur, is supported
-	pyfile lib/unmark_pipeline.py
-endfunc
+	execute 'pyfile ' . s:path . '/lib/unmark_pipeline.py'
+endfunction
 
 " Bind all the functions to user commands
 command! CheckXP call xpv#check_xp()

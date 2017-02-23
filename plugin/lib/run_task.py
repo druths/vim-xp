@@ -4,7 +4,7 @@ import vim
 from xp.pipeline import get_pipeline, FORCE_NONE, FORCE_TOP, FORCE_ALL, FORCE_SOLO, Task
 
 script_path = vim.eval('s:path')
-sys.path.insert(0,script_path)
+sys.path.insert(0,os.path.join(script_path,'lib'))
 from xpv_helper import *
 
 force_flag_lookup = {
