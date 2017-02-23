@@ -43,10 +43,10 @@ function! xpv#unmark_pipeline(...) " only one arg, recur, is supported
 endfunction
 
 " Bind all the functions to user commands
-command! CheckXP call xpv#check_xp()
-command! OpenPipeline call xpv#open_pipeline()
-command! -nargs=? RunPipeline call xpv#run_pipeline(<f-args>)
-command! -nargs=? RunTask call xpv#run_task(<f-args>)
-command! GetTaskStatus call xpv#get_task_status()
-command! UnmarkTask call xpv#unmark_task()
-command! -nargs=? UnmarkPipeline call xpv#unmark_pipeline(<f-args>)
+command! XPCheck call xpv#check_xp()
+command! XPOpenPipeline call xpv#open_pipeline()
+command! -nargs=? XPRunPipeline call xpv#run_pipeline(<f-args>)
+command! -nargs=? XPRunTask call xpv#run_task(<f-args>)
+command! XPGetTaskStatus call xpv#get_task_status()
+command! XPUnmarkTask call xpv#unmark_task()
+command! -nargs=? XPUnmarkPipeline call xpv#unmark_pipeline(<f-args>)

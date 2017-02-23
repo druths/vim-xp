@@ -25,17 +25,17 @@ Besides that, nothing else is required.
 =============================================================
 2. Commands										*xpv-commands*
 
-:CheckXP										*:CheckXP*
+:XPCheck										*:XPCheck*
 
 Check and make sure that the xpv plugin can run. This checks for the xp
 dependency.  If everything checks out, the command will print "OK".
 
-:OpenPipeline									*:OpenPipeline*
+:XPOpenPipeline									*:XPOpenPipeline*
 
 Open the pipeline under the cursor. The command assumes that your cursor is
 over either an "use ..." or "extends ..." statement.
 
-:RunPipeline									*:RunPipeline*
+:XPRunPipeline									*:XPRunPipeline*
 
 Run all tasks in the current pipeline. The command takes an optional force
 argument, which can have the following values:
@@ -47,19 +47,19 @@ argument, which can have the following values:
 		   they're marked
 	solo - run each task in the pipeline without running their dependencies
 
-:RunTask										*:RunTask*
+:XPRunTask										*:XPRunTask*
 
 Run the task under the cursor.  The command takes an optional force
 argument, which can have the same values as the RunPipeline command.
 
-:GetTaskStatus									*:GetTaskStatus*
+:XPGetTaskStatus									*:XPGetTaskStatus*
 
 Print information about this task: when it was last run, whether it's marked, etc...
 
-:UnmarkTask										*:UnmarkTask*
+:XPUnmarkTask										*XPUnmarkTask*
 
 Unmark the task under the cursor.
 
-:UnmarkPipeline									*:UnmarkPipeline*
+:XPUnmarkPipeline									*:XPUnmarkPipeline*
 
 Unmark all tasks in this pipeline.
