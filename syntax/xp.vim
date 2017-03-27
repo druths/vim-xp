@@ -1,4 +1,12 @@
-syntax on
+" Vim syntax file
+" Language:		xp
+" Maintainer:	Derek Ruths <druths@networkdynamics.org>
+
+"syntax on
+
+if exists("b:current_syntax")
+	finish
+endif
 
 " TODO: define the xpSnip
 

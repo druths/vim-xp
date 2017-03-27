@@ -3,3 +3,7 @@ task1:
 	code.sh:
 		echo 'hello world'
 
+	code.sql:
+		SELECT * FROM blah;
+
+
