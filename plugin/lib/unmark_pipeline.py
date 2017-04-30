@@ -1,7 +1,7 @@
 import os, sys
 import logging
 import vim
-from xp.pipeline import get_pipeline
+from xp.pipeline import get_pipeline, reset_pipeline_factory
 
 script_path = vim.eval('s:path')
 sys.path.insert(0,os.path.join(script_path,'lib'))
@@ -25,6 +25,7 @@ def main():
 			logger.error('argument was "%s", expected "recur"' % params[0])
 	
 	try:
+                reset_pipeline_factory()
 		pln = get_pipeline(pln_fname)
 	except Exception as e:
 		logger.error('unable to load pipeline: %s' % e.message)

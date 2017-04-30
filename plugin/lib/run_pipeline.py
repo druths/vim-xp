@@ -1,17 +1,17 @@
 import os, sys
 import logging
 import vim
-from xp.pipeline import get_pipeline, FORCE_NONE, FORCE_TOP, FORCE_ALL, FORCE_SOLO
+from xp.pipeline import get_pipeline, reset_pipeline_factory, FORCE_NONE, FORCE_TOP, FORCE_ALL, FORCE_SOLO
 
 script_path = vim.eval('s:path')
 sys.path.insert(0,os.path.join(script_path,'lib'))
 from xpv_helper import *
 
 force_flag_lookup = {
-'none':FORCE_NONE,
-'top':FORCE_TOP,
-'all':FORCE_ALL,
-'solo':FORCE_SOLO
+'none':'none',
+'top':'top',
+'all':'all',
+'solo':'solo'
 }
 
 def main():
@@ -24,19 +24,19 @@ def main():
 	params = vim.eval('a:000')
 	
 	# figure out the force flag
-	force_flag = FORCE_NONE
+	force_flag = 'none'
 	if len(params) > 0:
 		force_flag = force_flag_lookup[params[0]]
 	
 	try:
+                reset_pipeline_factory() 
 		pln = get_pipeline(pln_fname)
 	except Exception as e:
 		logger.error('unable to load pipeline: %s' % e.message)
 		return
 	
-	pln.run(force=force_flag)
+        vim.command('!xp run -f %s %s' % (force_flag.upper(),pln_fname))
 	
 	# done
-	print 'Ran pipeline'
 
 main()

@@ -2,7 +2,7 @@ import os, sys
 import datetime
 import logging
 import vim
-from xp.pipeline import get_pipeline, FORCE_NONE, FORCE_TOP, FORCE_ALL, FORCE_SOLO, Task
+from xp.pipeline import get_pipeline, reset_pipeline_factory, FORCE_NONE, FORCE_TOP, FORCE_ALL, FORCE_SOLO, Task
 
 script_path = vim.eval('s:path')
 sys.path.insert(0,os.path.join(script_path,'lib'))
@@ -17,6 +17,7 @@ def main():
 	pln_fname = vim.current.buffer.name
 	
 	try:
+                reset_pipeline_factory()
 		pln = get_pipeline(pln_fname)
 	except Exception as e:
 		logger.error('unable to load pipeline: %s' % e.message)
