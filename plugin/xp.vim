@@ -6,8 +6,8 @@
 "             to the extent permitted by applicable law. 
 "============================================================================
 
-if !has('python')
-	echo 'python must be installed for vim-xp to work'
+if !has('python') && !has('python3')
+	echo 'python or python3 must be installed for vim-xp to work'
 	finish
 endif
 
@@ -15,32 +15,32 @@ endif
 let s:path = expand('<sfile>:p:h')
 
 function! xp#check_xp()
-	execute 'pyfile ' . s:path . '/lib/check_xp.py'
+	execute (has('python3') ? 'py3file ' : 'pyfile ') . s:path . '/lib/check_xp.py'
 endfunction
 
 " TODO
 function! xp#open_pipeline()
-	execute 'pyfile ' . s:path . '/lib/open_pipeline.py'
+	execute (has('python3') ? 'py3file ' : 'pyfile ') . s:path . '/lib/open_pipeline.py'
 endfunction
 
 function! xp#run_pipeline(...) " only one argument, force, is supported
-	execute 'pyfile ' . s:path . '/lib/run_pipeline.py'
+	execute (has('python3') ? 'py3file ' : 'pyfile ') . s:path . '/lib/run_pipeline.py'
 endfunction
 
 function! xp#run_task(...) " only one argument, force, is supported
-	execute 'pyfile ' . s:path . '/lib/run_task.py'
+	execute (has('python3') ? 'py3file ' : 'pyfile ') . s:path . '/lib/run_task.py'
 endfunction
 
 function! xp#get_task_status()
-	execute 'pyfile ' . s:path . '/lib/get_task_status.py'
+	execute (has('python3') ? 'py3file ' : 'pyfile ') . s:path . '/lib/get_task_status.py'
 endfunction
 
 function! xp#unmark_task()
-	execute 'pyfile ' . s:path . '/lib/unmark_task.py'
+	execute (has('python3') ? 'py3file ' : 'pyfile ') . s:path . '/lib/unmark_task.py'
 endfunction
 
 function! xp#unmark_pipeline(...) " only one arg, recur, is supported
-	execute 'pyfile ' . s:path . '/lib/unmark_pipeline.py'
+	execute (has('python3') ? 'py3file ' : 'pyfile ') . s:path . '/lib/unmark_pipeline.py'
 endfunction
 
 " Bind all the functions to user commands
